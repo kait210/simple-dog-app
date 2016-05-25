@@ -1,0 +1,29 @@
+{
+  "name": "simple-dogs",
+  "description": "Find your Fido",
+  "main": "index.js",
+  "authors": [
+    "Kait Beaudette"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "pets",
+    "dogs",
+    "rescues",
+    "adoption"
+  ],
+  "homepage": "https://github.com/katie210/simple-dog-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.5"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.5"
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="DogApp">
+<head>
+  <title>Find your Fido.</title>
+	<meta name="description" content="Find the perfect puppy match for your family">
+	<link rel="stylesheet" href="main.css">
+  <script type='text/javascript' id='lt_ws' src='http://localhost:5678/socket.io/lighttable/ws.js'></script>
+  <script type='text/javascript' src='bower_components/angular/angular.min.js'></script>
+  <script type='text/javascript' src='bower_components/angular-mocks/angular-mocks.js'></script>
+  <script type='text/javascript' src='app/app.js'></script>
+  <script type='text/javascript' src='app/controllers.js'></script>
+</head>
+<body>
+<h2>Find your Family's New Best Friend.</h2>
+<div ng-controller="SearchController">
+<form name="searchForm" ng-submit="submit(zipcode)" novalidate>
+  <label>Where should we look? </label>
+  <input class="location" ng-model="zipcode" ng-minlength="5" ng-maxlength="11" ng-pattern="/\d+/" type="text" placeholder="Search by zipcode...">
+  <input type="submit" value="Fetch!">
+  <span class="alert">{{alert}}</span>
+</form>
+  <h5>Currently searching {{location}}. Type a new location above to change the search results below.</h5>
+</div>
+</body>
+</html>
