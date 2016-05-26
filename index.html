@@ -5,8 +5,10 @@
 	<meta name="description" content="Find the perfect puppy match for your family">
 	<link rel="stylesheet" href="main.css">
   <script type='text/javascript' id='lt_ws' src='http://localhost:5678/socket.io/lighttable/ws.js'></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <script type='text/javascript' src='bower_components/angular/angular.min.js'></script>
   <script type='text/javascript' src='bower_components/angular-mocks/angular-mocks.js'></script>
+  <script type='text/javascript' src='app/config.js'></script>
   <script type='text/javascript' src='app/app.js'></script>
   <script type='text/javascript' src='app/controllers.js'></script>
 </head>
@@ -15,11 +17,19 @@
 <div ng-controller="SearchController">
 <form name="searchForm" ng-submit="submit(zipcode)" novalidate>
   <label>Where should we look? </label>
-  <input class="location" ng-model="zipcode" ng-minlength="5" ng-maxlength="11" ng-pattern="/\d+/" type="text" placeholder="Search by zipcode...">
-  <input type="submit" value="Fetch!">
-  <span class="alert">{{alert}}</span>
+  <input class="location" ng-model="zipcode" ng-model-option="{debounce:1000, updateOn: 'blur'}" ng-minlength="5" ng-maxlength="11" ng-pattern="/\d+/" ng-change="fetch()" type="text" placeholder="Search by zipcode...">
+  <span ng-show="zipcode.length" class="alert">{{alert}}</span>
 </form>
-  <h5>Currently searching {{location}}. Type a new location above to change the search results below.</h5>
+  <h4>Type a new location above to change the search results below.</h4>
+  <p ng-show="zipcode && offset">
+      Showing results for {{zipcode}}
+  </p>
+  <div ng-repeat="dog in doggieData">
+    {{dog["name"]}}
+  </div>
+  <button ng-show="zipcode && offset" ng-click="fetch()">
+  More...
+  </button>
 </div>
 </body>
 </html>

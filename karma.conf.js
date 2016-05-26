@@ -15,18 +15,19 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'https://code.jquery.com/jquery-1.10.2.js',
       'bower_components/angular/angular.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'app/*.js',
-      'test/*.js',
-	{pattern: 'index.html', included: true, served: false}
+      'test/unit/*.js'
     ],
 
 
     // list of files to exclude
     exclude: [
         'app/lib/angular/angular-loader.js',
-        'app/lib/angular/angular-scenario.js'
+        'app/lib/angular/angular-scenario.js',
+        '*.html'
     ],
 
 

@@ -1,1 +1,1 @@
-var DogApp = angular.module('DogApp', []);
+var DogApp = angular.module('DogApp', ['config']);
