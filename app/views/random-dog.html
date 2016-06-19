@@ -10,7 +10,9 @@
           <h2>
             {{dog["name"]}}
           </h2>
-          <img class="profile" ng-src="{{dog['profile']}}" alt="Find {{dog.name}} a family! Adoption info: http://petfinder.com/petdetail/{{dog.id}}'">
+          <img class="profile" ng-src="{{dog['profile']}}"
+               alt="Find {{dog.name}} a family!
+                    Adoption info: http://petfinder.com/petdetail/{{dog.id}}">
           <div class="card-info">
             <h3>
               {{dog["breed"]}} <span ng-show="dog['mix']"> Mix</span>
@@ -23,11 +25,12 @@
             </h4>
             <a class="email" href="mailto:{{dog['email']}}"><button class="circle">Email</button></a>
             <a class="adopt" ng-href="http://petfinder.com/petdetail/{{dog['id']}}"><button class="circle">Adopt Me</button></a>
-            <button
-                    ngclipboard data-clipboard-text="http://kaitmakesthings.com/Adopt-a-Dog/dogs.html/{{dog['id']}}"
-                    data-tooltip="Click to copy & share url: Help me find a home!">
-              <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </button>
+              <button class="share" ngclipboard
+                      data-clipboard-text="Adopt {{dog.name}}: http://petfinder.com/petdetail/{{dog['id']}}
+                                           Find your Fido: http://kaitmakesthings.com/adopt/dogs/"
+                      data-tooltip="Click to copy & share url: Help me find a home!">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+              </button>
             <a class="save" ng-click="addtoStorage(dog)"><button>Save <i class="fa fa-star-o" aria-hidden="true"></i></button></a>
           </div>
           </div>

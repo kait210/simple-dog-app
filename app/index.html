@@ -65,7 +65,12 @@
               </p>
               <a href="mailto:{{dog['email']}}"><button class="circle">Email</button></a>
               <a ng-href="http://petfinder.com/petdetail/{{dog['id']}}"><button>Adopt Me</button></a>
-              <button class="circle" ngclipboard data-clipboard-text="Adopt {{dog.name}}: http://petfinder.com/petdetail/{{dog['id']}} Find your Fido: http://kaitmakesthings.com/Adopt-a-Dog/" data-tooltip="Click to copy & share url: Help me find a home!"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+              <button class="share" ngclipboard
+                      data-clipboard-text="Adopt {{dog.name}}: http://petfinder.com/petdetail/{{dog['id']}}
+                                           Find your Fido: http://kaitmakesthings.com/adopt/dogs/"
+                      data-tooltip="Click to copy & share url: Help me find a home!">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+              </button>
               <a class="remove" href="" ng-click="removefromStorage(dog)">
                 <button>Remove from Saved</button>
               </a>
