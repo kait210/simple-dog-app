@@ -1,13 +1,14 @@
 Adopt a Dog - v.1.0
-==========================
+====================
 
 A simple Angular single page web app that pulls adoptable dog info from the Petfinder API.
 
+![Adopt a Dog v.1.0](http://kaitmakesthings.com/media/adopt-dog-v1.0.png)
 
-*** DEMO ***
+### DEMO
 Hosted at http://kaitmakesthings.com/adopt/dogs
 
-*** Key Features: ***
+### Key Features:
 * Search by location: zipcode or City, State
 * Filter search by Age, Size, and Sex of dog
 * Roulette option gives one random dog as an alternative to search
@@ -16,17 +17,17 @@ Hosted at http://kaitmakesthings.com/adopt/dogs
 * Bookmark potential dogs for easy access (so you don't have to find them in the search results every time)
 * Links to each dog's Petfinder page for detailed Adoption information for an easy handoff to individual rescue through PF for serious considerations
 
-*** How to use ***
+### How to use
 
 Clone it down and serve it up locally:
 
-1) Clone this directory
-2) Go to cloned directory
-3) Go to https://www.petfinder.com/developers/api-key and get your own API key
-4) Type command `npm start` to run scripts and start server, then go to http://localhost:8000 in browser)
+1. Clone this directory
+2. Go to cloned directory
+3. Go to https://www.petfinder.com/developers/api-key and get your own API key
+4. Type command `npm start` to run scripts and start server, then go to http://localhost:8000 in browser)
 
 Optional --
-*** How to make the Ng-routed SPA URI behave like a traditional multi-route URI ***
+#### How to make the Ng-routed SPA URI behave like a traditional multi-route URI
 
 If you want to be able to access the ng-routed URL directly from the address bar,
 create a `.htaccess` file and place it in the root folder, with the following code inside:
@@ -43,7 +44,7 @@ RewriteEngine On
 This will allow filepaths that exist to go through but will redirect the ng-routed paths to the root rather than give a 404.
 
 
-*** Why this App? Why this Way? ***
+### Why this App? Why this Way?
 
 1) I love dogs and I buy everything online--- but Petfinder's website felt claustrophic. I felt couldn't search as freely as I wanted.
 
@@ -56,7 +57,7 @@ This will allow filepaths that exist to go through but will redirect the ng-rout
 Reference https://www.petfinder.com/developers/api-docs if you want to know more about the api calls made within this app
 
 
-*** Improvements TO-DO***
+### Improvements TO-DO
 
 * Refactor: Split up controller into individual skinny controllers
 * Refactor: Unit-test data storage service (ng-storage) -- Currently facing $localstorage injection error
@@ -68,6 +69,8 @@ Reference https://www.petfinder.com/developers/api-docs if you want to know more
 
 * Feature: Add Quiz -- best type of dog for xyz situation
 * Feature: Individual Page for each dog (by id) with more photos, description
+
+***
 
 
 MAKE IT BETTER WITH A FORK.
