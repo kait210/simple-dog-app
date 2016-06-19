@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Sun May 22 2016 21:58:02 GMT-0500 (CDT)
+// Generated on Tue May 31 2016 20:37:27 GMT-0500 (CDT)
 
 module.exports = function(config) {
   config.set({
@@ -10,37 +10,48 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['mocha', 'sinon-chai'],
 
+    client: {
+      chai: {
+        includeStack: true
+      }
+    },
 
     // list of files / patterns to load in the browser
     files: [
-      'https://code.jquery.com/jquery-1.10.2.js',
       'bower_components/angular/angular.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/angular-route/angular-route.js',
+      'node_modules/ngstorage/ngStorage.min.js',
+      'app/config.js',
+      'app/app.js',
       'app/*.js',
-      'test/unit/*.js'
+      'test/unit/*.spec.js'
     ],
 
 
     // list of files to exclude
     exclude: [
-        'app/lib/angular/angular-loader.js',
-        'app/lib/angular/angular-scenario.js',
-        '*.html'
+      'public/'
     ],
 
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+        'app/*.js': ['coverage']
     },
 
+    coverageReporter: {
+        type: 'text-summary',
+        dir: 'coverage/'
+    },
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port

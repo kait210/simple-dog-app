@@ -1,0 +1,34 @@
+        <div class="flex centered">
+          <h3>Let's Play Rover Roulette!</h3>
+          <p>Click the button below to fetch a random dog.</p>
+          <form>
+          <input type="submit" ng-click="getRandom()" value="Fetch!">
+          </form>
+        </div>
+        <section class="flex centered">
+          <div class="random dog-card" ng-repeat="dog in randomDog" ng-cloak>
+          <h2>
+            {{dog["name"]}}
+          </h2>
+          <img class="profile" ng-src="{{dog['profile']}}" alt="Find {{dog.name}} a family! Adoption info: http://petfinder.com/petdetail/{{dog.id}}'">
+          <div class="card-info">
+            <h3>
+              {{dog["breed"]}} <span ng-show="dog['mix']"> Mix</span>
+            </h3>
+            <ul>
+              <li ng-repeat="info in dog['options']">{{info}}</li>
+            </ul>
+            <h4>
+              {{dog["size"]}} - {{dog["age"]}} - {{dog["sex"]}}
+            </h4>
+            <a class="email" href="mailto:{{dog['email']}}"><button class="circle">Email</button></a>
+            <a class="adopt" ng-href="http://petfinder.com/petdetail/{{dog['id']}}"><button class="circle">Adopt Me</button></a>
+            <button
+                    ngclipboard data-clipboard-text="http://kaitmakesthings.com/Adopt-a-Dog/dogs.html/{{dog['id']}}"
+                    data-tooltip="Click to copy & share url: Help me find a home!">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </button>
+            <a class="save" ng-click="addtoStorage(dog)"><button>Save <i class="fa fa-star-o" aria-hidden="true"></i></button></a>
+          </div>
+          </div>
+        </section>

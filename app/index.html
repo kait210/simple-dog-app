@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html ng-app="dogApp">
+  <head>
+    <title>Find your Fido</title>
+    <meta name="description" content="Find the perfect puppy match for your family">
+    <base href="/">
+
+    <link href="//fonts.googleapis.com/css?family=Asar&subset=latin" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="build/normalize.css/normalize.css">
+    <link rel="stylesheet" href="app.css">
+    <script src="https://use.fontawesome.com/677a32fb5e.js"></script>
+
+    <script src="build/angular/angular.min.js"></script>
+    <script src="build/angular-mocks/angular-mocks.js"></script>
+    <script src="build/angular-route/angular-route.js"></script>
+
+    <script src="build/ngstorage/ngStorage.min.js"></script>
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.10/dist/clipboard.min.js"></script>
+    <script src="build/ngclipboard/dist/ngclipboard.min.js"></script>
+
+    <script src='config.js'></script>
+    <script src='app.js'></script>
+    <script src='controllers.js'></script>
+    <script src='adoptable-dogs-factory.js'></script>
+    <script src='dog-data-service.js'></script>
+    <script src='data-storage-service.js'></script>
+</head>
+<body>
+  <div class="wrapper" ng-controller="DogController">
+  <h1 class="text--centered">Find your Fido.</h1>
+      <nav>
+        <a href="/search">
+          <h2>
+            <i class="fa fa-search" aria-hidden="true"></i>
+            Search
+          </h2>
+        </a>
+        <a href="/random">
+          <h2>
+            Roulette
+            <i class="fa fa-random" aria-hidden="true"></i>
+          </h2>
+        </a>
+      </nav>
+      <div ng-view>
+      </div>
+    <hr>
+      <div class="flex centered">
+        <h3>Prospective New Family Members</h3>
+        <section class="grid" ng-show="doggies.length > 0">
+          <div class="dog-card" ng-repeat="dog in doggies" ng-cloak>
+            <h2>
+              {{dog["name"]}}
+            </h2>
+            <img ng-src="{{dog['profile']}}" alt="Help find {{dog.name}} a family!'">
+            <div class="card-info">
+              <h4>
+                {{dog["breed"]}} <span ng-show="dog['mix']"> Mix</span>
+              </h4>
+              <ul>
+                <li ng-repeat="info in dog['options']">{{info}}</li>
+              </ul>
+              <p>
+                {{dog["age"]}} | {{dog["sex"]}} | {{dog["size"]}}
+              </p>
+              <a href="mailto:{{dog['email']}}"><button class="circle">Email</button></a>
+              <a ng-href="http://petfinder.com/petdetail/{{dog['id']}}"><button>Adopt Me</button></a>
+              <button class="circle" ngclipboard data-clipboard-text="Adopt {{dog.name}}: http://petfinder.com/petdetail/{{dog['id']}} Find your Fido: http://kaitmakesthings.com/Adopt-a-Dog/" data-tooltip="Click to copy & share url: Help me find a home!"><i class="fa fa-share-alt" aria-hidden="true"></i></button>
+              <a class="remove" href="" ng-click="removefromStorage(dog)">
+                <button>Remove from Saved</button>
+              </a>
+            </div>
+          </div>
+        </section>
+        <p ng-show="doggies.length == 0">
+          Click "Save" on any dog's card to keep them here for later.
+        </p>
+        <button href="" ng-show="doggies.length > 0" ng-click="clearData()">
+          Clear all saved dogs
+        </button>
+      </div>
+    </div>
+    <div class="flex stretch centered">
+      <footer>
+      <h6 class="text--centered">
+        2016 - <a href="mailto:kait@kaitmakesthings.com" data-tooltip="Email Kait with any inquiries!">Baked in-House</a>
+      </h6>
+    <footer>
+</body>
+</html>
