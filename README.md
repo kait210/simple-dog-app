@@ -55,7 +55,6 @@ _I read an article that rescue groups' poor websites drive people to pet stores 
 
 Reference [Petfinder API Docs](https://www.petfinder.com/developers/api-docs) if you want to know more about the api calls made within this app
 
-
 ### Improvements TO-DO
 
 * Refactor: Split up controller into individual skinny controllers
