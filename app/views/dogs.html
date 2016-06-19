@@ -1,0 +1,73 @@
+      <div class="flex centered">
+        <form name="searchForm" novalidate>
+          <label>
+              I am looking for
+         <select name="size" id="size" ng-model="size">
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+              <option value="Giant">Giant</option>
+          </select>
+          <select name="age" id="age" ng-model="age">
+              <option value="Puppy">Puppy</option>
+              <option value="Young">Young</option>
+              <option value="Adult">Adult</option>
+              <option value="Senior">Senior</option>
+          </select>
+          <select name="sex" id="sex" ng-model="sex">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+          </select>
+            Dogs near
+          </label>
+          <label>
+            <input name="location"
+                   ng-model="location"
+                   ng-model-options="{debounce:800}"
+                   type="text"
+                   autocomplete="off"
+                   placeholder="Type zipcode or City, State..."
+                   ng-change="clearFetch()">
+          </label>
+        </form>
+        <p>They're all up for adoption! Take one home!</p>
+      </div>
+      <section class="grid">
+        <div class="dog-card" ng-repeat="dog in doggieData |
+                              filter:{size:size,
+                                      age:age,
+                                      sex:sex}:true" ng-cloak>
+          <h2>
+            {{dog["name"]}}
+          </h2>
+          <img class="profile" ng-src="{{dog['profile']}}"
+               alt="Help find {{dog.name}} a family! Adoption info: http://petfinder.com/petdetail/{{dog['id']}}'" ng-cloak>
+          <div class="card-info">
+            <h3>
+              {{dog["breed"]}} <span ng-show="dog['mix']"> Mix</span>
+            </h3>
+            <ul>
+              <li ng-repeat="info in dog['options']">{{info}}</li>
+            </ul>
+            <h4>
+              {{dog["size"]}} - {{dog["age"]}} - {{dog["sex"]}}
+            </h4>
+            <a class="email" href="mailto:{{dog['email']}}"><button>Email</button></a>
+            <a class="adopt" ng-href="http://petfinder.com/petdetail/{{dog['id']}}"><button class="adopt">Adopt Me</button></a>
+            <button class="share"
+                    ngclipboard
+                    data-clipboard-text=""Adopt {{dog.name}}: http://petfinder.com/petdetail/{{dog['id']}} Find your Fido: http://kaitmakesthings.com/Adopt-a-Dog/""
+                    data-tooltip="Click to copy & share url: Help me find a home!">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </button>
+            <a ng-click="addtoStorage(dog)"><button class="save">Save <i class="fa fa-star-o" aria-hidden="true"></i></button></a>
+          </div>
+        </div>
+      </section>
+      <div class="flex centered">
+          <h4>
+          <a ng-show="location && doggieData.length > 0" ng-click="fetch()">
+          See More Results...
+          </a>
+        </h4>
+      </div>
