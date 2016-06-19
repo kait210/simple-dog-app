@@ -24,7 +24,8 @@ Clone it down and serve it up locally:
 1. Clone this directory
 2. Go to cloned directory
 3. Go to https://www.petfinder.com/developers/api-key and get your own API key
-4. Type command `npm start` to run scripts and start server, then go to http://localhost:8000 in browser)
+4. Fill in your API key in app/sample-config.js (don't forget to rename it to config.js!)
+5. Type command `npm start` to run scripts and start server, then go to http://localhost:8000 in browser)
 
 Optional --
 #### How to make the Ng-routed SPA URI behave like a traditional multi-route URI
@@ -46,15 +47,13 @@ This will allow filepaths that exist to go through but will redirect the ng-rout
 
 ### Why this App? Why this Way?
 
-1) I love dogs and I buy everything online--- but Petfinder's website felt claustrophic. I felt couldn't search as freely as I wanted.
+1. I love dogs and I buy everything online--- but Petfinder's website felt claustrophic. I felt couldn't search as freely as I wanted.
+2. I wanted to make the initial search for a rescue dog at least as easy as walking into a pet store
+3. Repetitive data pulled frequently from an external API in realtime and organized for easy sorting is a good use case for Angular.
 
-2) I wanted to make the initial search for a rescue dog at least as easy as walking into a pet store
+_I read an article that rescue groups' poor websites drive people to pet stores and Craigslist (read: puppy mills and sub-standard breeding practices) when there are so many perfectly good dogs in Shelters._
 
-3) Repetitive data pulled frequently from an external API in realtime and organized for easy sorting is a good use case for Angular.
-
-// _I read an article that rescue groups' poor websites drive people to pet stores and Craigslist (read: puppy mills and sub-standard breeding practices) when there are so many perfectly good dogs in Shelters._
-
-Reference https://www.petfinder.com/developers/api-docs if you want to know more about the api calls made within this app
+Reference [Petfinder API Docs](https://www.petfinder.com/developers/api-docs) if you want to know more about the api calls made within this app
 
 
 ### Improvements TO-DO
@@ -63,10 +62,8 @@ Reference https://www.petfinder.com/developers/api-docs if you want to know more
 * Refactor: Unit-test data storage service (ng-storage) -- Currently facing $localstorage injection error
 * Refactor: Eliminate bandaid css classes in html (classes that exist only to mark for easy testing in Protractor)
 * Refactor: Enable "Any" text on select fields without breaking filter
-
 * Layout: Style Buttons, Headers; Change Font?
 * Layout: Live with design for a bit, tweak for better UX as appropriate
-
 * Feature: Add Quiz -- best type of dog for xyz situation
 * Feature: Individual Page for each dog (by id) with more photos, description
 
