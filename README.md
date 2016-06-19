@@ -69,7 +69,6 @@ Reference [Petfinder API Docs](https://www.petfinder.com/developers/api-docs) if
 
 ***
 
-
 MAKE IT BETTER WITH A FORK.
 
 Copyright (c) 2016 - House of Cakes
