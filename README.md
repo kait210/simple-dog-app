@@ -3,11 +3,6 @@ Adopt a Dog - v.1.0
 
 A simple Angular single page web app that pulls adoptable dog info from the Petfinder API.
 
-![Adopt a Dog v.1.0](http://kaitmakesthings.com/media/adopt-dog-v1.0.png)
-
-### DEMO
-Hosted at http://kaitmakesthings.com/adopt/dogs
-
 ### Key Features:
 * Search by location: zipcode or City, State
 * Filter search by Age, Size, and Sex of dog
