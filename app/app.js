@@ -7,15 +7,15 @@ angular.module('dogApp', [
 ]).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
   $routeProvider
-    .when('/search', {
+    .when('simpledogapp/search', {
       templateUrl: 'views/dogs.html',
       controller: 'DogController'
     })
-    .when('/random', {
+    .when('simpledogapp/random', {
       templateUrl: 'views/random-dog.html',
       controller: 'DogController'
     })
-    .otherwise({ redirectTo: '/'
+    .otherwise({ redirectTo: '/simpledogapp'
     });
 
   $locationProvider.html5Mode(true);

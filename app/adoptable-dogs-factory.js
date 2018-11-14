@@ -1,5 +1,5 @@
 angular.module('dogApp')
-.factory('AdoptableDogs', ['$http', 'ENV', function($http, ENV) {
+.factory('AdoptableDogs', ['$sce', '$http', 'ENV', function($sce, $http, ENV) {
 
   var dogs = {};
 
@@ -13,7 +13,6 @@ angular.module('dogApp')
     config.params.animal = "dog";
     config.params.count = 100;
     config.params.offset = offset || 0;
-    config.params.callback = "JSON_CALLBACK";
     config.params.format = "json";
 
     return config;
@@ -21,13 +20,12 @@ angular.module('dogApp')
 
   dogs.getRandom = function() {
 
-    var url = 'http://api.petfinder.com/pet.getRandom?';
+    var url = $sce.trustAsResourceUrl('https://api.petfinder.com/pet.getRandom?');
 
     var config = {}
     config.params = {
                         key: ENV.PFKEY,
                         output: "basic",
-                        callback: "JSON_CALLBACK",
                         format: "json",
                         animal: "dog"
                     }
@@ -47,7 +45,7 @@ angular.module('dogApp')
 
   dogs.getDogs = function(location, offset) {
 
-      var apiUrl = 'http://api.petfinder.com/pet.find?';
+      var apiUrl = $sce.trustAsResourceUrl('https://api.petfinder.com/pet.find?');
 
       var self = this;
       var config = self.dogsConfig(location, offset);
